@@ -9,13 +9,18 @@ var port = null;
 
 describe('ruckus', function() {
   beforeEach(function(done) {
-    loader.clear();
     testutils.server(function(_server, _host, _port) {
       server = _server;
       host = _host;
       port = _port;
       done();
     });
+  });
+
+  afterEach(function(done) {
+    server.close();
+    loader.clear();
+    done();
   });
 
   it('should load the object', function(done) {
