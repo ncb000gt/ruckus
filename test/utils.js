@@ -9,6 +9,7 @@ module.exports.server = function(cb) {
         res.end('Hello World\n');
       });
       server.listen(port);
+      if (cb) cb(server, host, port);
     },
     findOne: true,
     findActive: false
